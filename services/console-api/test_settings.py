@@ -11,6 +11,10 @@ SPEC.loader.exec_module(SERVER)
 
 
 class SettingsValidationTests(unittest.TestCase):
+    def test_checkout_root_contains_runtime_templates(self):
+        self.assertTrue(SERVER.PEER_TEMPLATE.is_file())
+        self.assertTrue(SERVER.SCHEDULER_CONFIG.is_file())
+
     def test_working_defaults_are_valid_and_match_runtime_templates(self):
         settings = SERVER.normalize_settings(SERVER.DEFAULT_SETTINGS)
         self.assertEqual(settings["peer"]["download_bandwidth"], "50GB")

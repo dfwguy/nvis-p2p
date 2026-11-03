@@ -20,7 +20,7 @@ import uuid
 from http.cookies import SimpleCookie
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-ROOT = pathlib.Path(os.environ.get("NVIS_P2P_ROOT", "/home/hlakshminara/NVIS-P2P")).expanduser().resolve()
+ROOT = pathlib.Path(os.environ.get("NVIS_P2P_ROOT", str(pathlib.Path(__file__).resolve().parents[2]))).expanduser().resolve()
 CATALOG = ROOT / "catalog/images.json"
 STATE = ROOT / "state/console-operations"
 RUNNER = ROOT / "scripts/catalog-operation.sh"

@@ -35,3 +35,6 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 tests/cluster.env.test
+
+# Public immutable component pins are required by make verify.
+!release/components.env
